@@ -120,7 +120,7 @@ void Canvas::drawLineEx(int x0, int y0, int x1, int y1, const Color &color) {
     for (unsigned int i = 0; i <= (unsigned int)std::round(dist); i++) {
         int x = x0 + (int)std::round((ux * (float)i));
         int y = y0 + (int)std::round((uy * (float)i));
-        if ((0 <= x < width) && (0 <= y < height)) {
+        if ((0 <= x) && (x < width) && (0 <= y) && (y < height)) {
             this->target->put(x, y, color);
         }
     }
@@ -132,7 +132,7 @@ void Canvas::drawRectEx(int x0, int y0, int x1, int y1, const Color &color) {
     int height = (int)this->target->getHeight();
     for (int x = x0; x <= x1; x++) {
         for (int y = y0; y <= y1; y++) {
-            if ((0 <= x < width) && (0 <= y < height)) {
+            if ((0 <= x) && (x < width) && (0 <= y) && (y < height)) {
                 this->target->put(x, y, color);
             }
         }
